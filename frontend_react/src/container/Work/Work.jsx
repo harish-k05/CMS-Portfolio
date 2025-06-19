@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { AiFillEye, AiFillGithub } from 'react-icons/ai'
+import { FiFigma } from 'react-icons/fi'
 import { motion } from 'framer-motion'
 import { AppWrap,MotionWrap } from '../../wrapper'
 import { urlFor, client } from '../../client'
@@ -12,7 +13,6 @@ const Work = () => {
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
   const [works, setWorks] = useState([]);
   const [filterWork, setFilterWork] = useState([]);
-
 
   useEffect(() => {
     const query = '*[_type == "works"]';
@@ -89,7 +89,7 @@ const Work = () => {
                     transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5 }}
                     className='app__flex'
                   >
-                    <AiFillGithub/>
+                    {work.tags.includes("UI/UX")?<FiFigma/>:<AiFillGithub/>}
                   </motion.div>
                 </a>
 
